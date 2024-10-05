@@ -21,7 +21,7 @@ export const projectsData = [
 		title: 'Avalon',
 		category: 'Web Application/AI/ML',
 		img: AvalonImage,
-		link: 'https://avalonnextdemo.vercel.app/login'
+		link: 'https://www.getavalon.io/'
 	},
 	{
 		id: 3,
