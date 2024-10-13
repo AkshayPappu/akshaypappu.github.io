@@ -7,8 +7,16 @@ import NetworkImage from '../images/network-image.png';
 import MobileImage from '../images/mobile-image.png';
 import NutriverseImage from '../images/nutriverse-image.png';
 import NBAImage from '../images/nba-image.png';
+import NerfboostImage from '../images/nerfboost_image.png';
 
 export const projectsData = [
+	{
+		id: 0,
+		title: 'Nerfboost',
+		category: 'AI/ML',
+		img: NerfboostImage,
+		link: 'https://pypi.org/project/nerfboost/'
+	},
 	{
 		id: 1,
 		title: 'Gold Futures Trading Strategy',
