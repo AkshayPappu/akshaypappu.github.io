@@ -42,15 +42,13 @@ const AppBanner = () => {
 				>
 					<TypeAnimation 
 						sequence={[
-							'I solve problems with code',
+							'I build things with code',
 							1000,
-							'I’m a student at Virginia Tech',
+							'I work with AI and ML',
 							1000,
-							'I build scalable cloud systems',
+							'I develop web applications',
 							1000,
-							'I create full-stack apps',
-							1000,
-							'I optimize systems efficiently',
+							'I enjoy solving complex problems',
 							1000
 						  ]}						  
 						wrapper="span"
