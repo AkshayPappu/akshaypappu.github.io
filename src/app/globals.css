@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -10,17 +10,119 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.6s ease-out forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes terminal-caret {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.aura-glow {
+  box-shadow: 0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+.aura-glow-hover {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.aura-glow-hover:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+}
+
+.aura-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aura-border-hover {
+  transition: border-color 0.3s ease;
+}
+
+.aura-border-hover:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.terminal-shell {
+  position: relative;
+}
+
+.terminal-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.015) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.terminal-heading {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.14);
+}
+
+.terminal-amber {
+  box-shadow:
+    0 0 52px rgba(255, 255, 255, 0.035),
+    0 0 16px rgba(251, 146, 60, 0.08);
+}
+
+.terminal-prompt {
+  color: rgba(253, 186, 116, 0.9);
+}
+
+.terminal-link {
+  transition: color 0.2s ease;
+}
+
+.terminal-link:hover {
+  color: rgb(254, 215, 170);
+}
+
+.terminal-cursor::after {
+  content: "_";
+  margin-left: 4px;
+  animation: terminal-caret 1s steps(1) infinite;
+}
+
