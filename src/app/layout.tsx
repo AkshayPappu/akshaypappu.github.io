@@ -22,7 +22,10 @@ export const metadata: Metadata = {
   description:
     "A sleek black & white personal portfolio showcasing projects, thoughts, and more.",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
     apple: "/favicon.png",
   },
   openGraph: {
