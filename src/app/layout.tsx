@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   },
   description:
     "A sleek black & white personal portfolio showcasing projects, thoughts, and more.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Akshay Pappu",
     description:
