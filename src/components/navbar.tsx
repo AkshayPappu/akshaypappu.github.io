@@ -20,7 +20,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-wide text-orange-200 transition-colors hover:text-orange-100"
+          className="phosphor-text text-sm font-semibold tracking-wide text-orange-200 transition-colors hover:text-orange-100"
         >
           akshay@portfolio:~/
         </Link>

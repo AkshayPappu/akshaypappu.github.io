@@ -33,7 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-24">
+    <div className="mx-auto w-full max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
       <Link
         href="/blog"
         className="mb-8 inline-block font-mono text-sm text-orange-200/75 transition-colors hover:text-orange-200"
@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: Props) {
         <time className="terminal-prompt text-xs">
           {post.frontmatter.date}
         </time>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight">
+        <h1 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
           {post.frontmatter.title}
         </h1>
       </header>

@@ -25,7 +25,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white/10 font-mono">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
-        <p className="terminal-prompt text-xs">
+        <p className="text-xs" style={{ color: "rgba(253, 186, 116, 0.9)" }}>
           akshay@portfolio:~$ echo &quot;&copy; {new Date().getFullYear()} Akshay
           Pappu&quot;
         </p>
