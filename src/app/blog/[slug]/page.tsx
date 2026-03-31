@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { mdxComponents } from "@/components/mdx-components";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { GlowPanel } from "@/components/glow-panel";
 import Link from "next/link";
 
 interface Props {
@@ -41,39 +43,49 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <div className="mx-auto w-full max-w-[44rem] px-5 py-16 sm:px-6 sm:py-24">
-      <Link
-        href="/blog"
-        className="group mb-10 inline-flex items-center gap-2 font-mono text-xs tracking-wide text-zinc-500 transition-colors hover:text-orange-200/80"
-      >
-        <span className="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
-        <span>cd ..</span>
-      </Link>
-
-      <header className="terminal-shell terminal-amber mb-14 rounded-xl border border-white/10 bg-black/60 p-6 font-mono sm:p-8">
-        <div className="crt-noise" />
-        <div className="mb-4 flex items-center gap-3 text-xs text-zinc-500">
-          <time className="terminal-prompt">{post.frontmatter.date}</time>
-          <span className="text-zinc-700">/</span>
-          <span>{readingTime} min read</span>
-        </div>
-        <h1 className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
-          {post.frontmatter.title}
-        </h1>
-      </header>
-
-      <article className="prose-custom">
-        <MDXRemote source={post.content} components={mdxComponents} />
-      </article>
-
-      <footer className="mt-20 border-t border-white/5 pt-8">
+      <AnimateOnScroll animation="fade-in">
         <Link
           href="/blog"
-          className="group inline-flex items-center gap-2 font-mono text-xs tracking-wide text-zinc-500 transition-colors hover:text-orange-200/80"
+          className="group mb-10 inline-flex items-center gap-2 font-mono text-xs tracking-wide text-zinc-500 transition-colors hover:text-orange-200/80"
         >
           <span className="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
-          <span>back to all posts</span>
+          <span>cd ..</span>
         </Link>
-      </footer>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll animation="slide-up" delay={100}>
+        <GlowPanel className="rounded-xl">
+          <header className="terminal-shell terminal-amber mb-14 rounded-xl border border-white/10 bg-black/60 p-6 font-mono sm:p-8">
+            <div className="crt-noise" />
+            <div className="mb-4 flex items-center gap-3 text-xs text-zinc-500">
+              <time className="terminal-prompt">{post.frontmatter.date}</time>
+              <span className="text-zinc-700">/</span>
+              <span>{readingTime} min read</span>
+            </div>
+            <h1 className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
+              {post.frontmatter.title}
+            </h1>
+          </header>
+        </GlowPanel>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll animation="slide-up" delay={250}>
+        <article className="prose-custom">
+          <MDXRemote source={post.content} components={mdxComponents} />
+        </article>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll animation="fade-in" delay={400}>
+        <footer className="mt-20 border-t border-white/5 pt-8">
+          <Link
+            href="/blog"
+            className="group inline-flex items-center gap-2 font-mono text-xs tracking-wide text-zinc-500 transition-colors hover:text-orange-200/80"
+          >
+            <span className="inline-block transition-transform group-hover:-translate-x-0.5">&larr;</span>
+            <span>back to all posts</span>
+          </Link>
+        </footer>
+      </AnimateOnScroll>
     </div>
   );
 }
